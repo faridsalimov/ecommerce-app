@@ -3,9 +3,7 @@ import { getToken } from "next-auth/jwt";
 import { NextRequest } from "next/server";
 
 const isProtectedRoute = (pathname: string) => {
-  return ["/profile", "/cart", "/checkout"].some((route) =>
-    pathname.startsWith(route)
-  );
+  return ["/profile", "/cart", "/checkout"].some((route) => pathname.startsWith(route));
 };
 
 const isAuthPage = (pathname: string) => {
@@ -40,10 +38,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    "/profile/:path*",
-    "/cart/:path*",
-    "/checkout/:path*",
-    "/auth/:path*",
-  ],
+  matcher: ["/profile/:path*", "/cart/:path*", "/checkout/:path*", "/auth/:path*"],
 };

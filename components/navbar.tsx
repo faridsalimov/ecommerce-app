@@ -29,11 +29,7 @@ export default function Navbar() {
               ecommerce.az
             </Link>
             <div className="hidden md:flex items-center space-x-2">
-              <Input
-                type="search"
-                placeholder="Məhsul axtarın..."
-                className="w-64"
-              />
+              <Input type="search" placeholder="Məhsul axtarın..." className="w-64" />
               <Button size="icon" variant="ghost">
                 <Search className="h-5 w-5" />
               </Button>
@@ -50,15 +46,9 @@ export default function Navbar() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setTheme("light")}>
-                  İşıqlı
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("dark")}>
-                  Qaranlıq
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("system")}>
-                  Sistem
-                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme("light")}>İşıqlı</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme("dark")}>Qaranlıq</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme("system")}>Sistem</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 

@@ -23,9 +23,7 @@ export default function ProfileOverview() {
         <CardContent className="space-y-6">
           <div className="flex items-center space-x-4">
             <Avatar className="h-20 w-20">
-              <AvatarFallback className="text-2xl">
-                {user.name?.charAt(0).toUpperCase()}
-              </AvatarFallback>
+              <AvatarFallback className="text-2xl">{user.name?.charAt(0).toUpperCase()}</AvatarFallback>
             </Avatar>
             <div>
               <h3 className="text-2xl font-semibold">{user.name}</h3>
@@ -34,8 +32,7 @@ export default function ProfileOverview() {
           </div>
           <div className="pt-4 border-t">
             <p className="text-sm text-muted-foreground">
-              Qoşulma tarixi:{" "}
-              {formatDate(user.createdAt || new Date().toISOString())}
+              Qoşulma tarixi: {formatDate(user.createdAt || new Date().toISOString())}
             </p>
           </div>
         </CardContent>
@@ -79,17 +76,10 @@ export default function ProfileOverview() {
         <CardContent>
           <div className="space-y-4">
             {[1, 2, 3].map((order) => (
-              <div
-                key={order}
-                className="flex items-center justify-between p-4 border rounded-lg"
-              >
+              <div key={order} className="flex items-center justify-between p-4 border rounded-lg">
                 <div>
-                  <p className="font-medium">
-                    Sifariş #{String(order).padStart(6, "0")}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    {formatDate(new Date().toISOString())}
-                  </p>
+                  <p className="font-medium">Sifariş #{String(order).padStart(6, "0")}</p>
+                  <p className="text-sm text-muted-foreground">{formatDate(new Date().toISOString())}</p>
                 </div>
                 <div className="text-right">
                   <p className="font-medium">459.99 ₼</p>

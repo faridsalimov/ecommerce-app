@@ -61,9 +61,7 @@ export default function ProfileInfo() {
               <Input
                 id="name"
                 value={formData.name}
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               />
             ) : (
               <p className="text-lg">{session.user?.name}</p>
@@ -76,9 +74,7 @@ export default function ProfileInfo() {
                 id="email"
                 type="email"
                 value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
             ) : (
               <p className="text-lg">{session.user?.email}</p>
@@ -89,11 +85,7 @@ export default function ProfileInfo() {
               <LoadingButton type="submit" loading={loading}>
                 Yadda Saxla
               </LoadingButton>
-              <LoadingButton
-                type="button"
-                variant="outline"
-                onClick={() => setIsEditing(false)}
-              >
+              <LoadingButton type="button" variant="outline" onClick={() => setIsEditing(false)}>
                 Ləğv Et
               </LoadingButton>
             </div>

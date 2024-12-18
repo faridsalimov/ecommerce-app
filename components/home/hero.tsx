@@ -17,9 +17,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
         <div className="text-center text-white space-y-4">
           <h1 className="text-5xl font-bold">Azərbaycanda Online Alış-Veriş</h1>
-          <div className="text-xl">
-            Ən yaxşı məhsullar, ən yaxşı qiymətlərlə
-          </div>
+          <div className="text-xl">Ən yaxşı məhsullar, ən yaxşı qiymətlərlə</div>
           <div>
             <Button size="lg" asChild>
               <Link href="/products">İndi Alış-Veriş Et</Link>

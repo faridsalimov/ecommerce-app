@@ -1,13 +1,7 @@
 "use client";
 
 import { Product } from "@/types/product";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import AddToCartButton from "./add-to-cart-button";
@@ -21,12 +15,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     <Card className="hover:shadow-lg transition-shadow">
       <CardHeader>
         <div className="relative h-48 mb-4">
-          <Image
-            src={product.image}
-            alt={product.name}
-            fill
-            className="object-cover rounded-md"
-          />
+          <Image src={product.image} alt={product.name} fill className="object-cover rounded-md" />
         </div>
         <CardTitle>{product.name}</CardTitle>
         <div className="mt-2">
@@ -36,11 +25,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       <CardContent>
         <div className="space-y-2">
           <div className="text-2xl font-bold">{product.price} ₼</div>
-          {product.description && (
-            <div className="text-sm text-muted-foreground">
-              {product.description}
-            </div>
-          )}
+          {product.description && <div className="text-sm text-muted-foreground">{product.description}</div>}
           {product.stock && (
             <div className="text-sm">
               <Badge variant="outline">Stokda: {product.stock}</Badge>

@@ -20,18 +20,11 @@ export default function ProductFilters() {
         <div className="space-y-2">
           <Label>Kateqoriya</Label>
           <div className="flex flex-wrap gap-2">
-            {["Hamısı", "Elektronika", "Ayaqqabı", "Geyim", "Ev və Bağ"].map(
-              (category) => (
-                <Button
-                  key={category}
-                  variant="outline"
-                  size="sm"
-                  className="rounded-full"
-                >
-                  {category}
-                </Button>
-              )
-            )}
+            {["Hamısı", "Elektronika", "Ayaqqabı", "Geyim", "Ev və Bağ"].map((category) => (
+              <Button key={category} variant="outline" size="sm" className="rounded-full">
+                {category}
+              </Button>
+            ))}
           </div>
         </div>
 

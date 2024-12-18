@@ -36,10 +36,7 @@ export const authOptions: NextAuthOptions = {
           throw new Error("İstifadəçi tapılmadı");
         }
 
-        const isPasswordValid = await verifyPassword(
-          credentials.password,
-          user.password
-        );
+        const isPasswordValid = await verifyPassword(credentials.password, user.password);
         if (!isPasswordValid) {
           throw new Error("Yanlış şifrə");
         }

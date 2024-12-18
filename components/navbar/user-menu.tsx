@@ -26,9 +26,7 @@ export default function UserMenu() {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="relative h-10 w-10 rounded-full">
           <Avatar>
-            <AvatarFallback>
-              {session?.user?.name?.charAt(0).toUpperCase()}
-            </AvatarFallback>
+            <AvatarFallback>{session?.user?.name?.charAt(0).toUpperCase()}</AvatarFallback>
           </Avatar>
         </Button>
       </DropdownMenuTrigger>

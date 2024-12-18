@@ -52,41 +52,23 @@ export default function ProfileOrders() {
       </CardHeader>
       <CardContent>
         {orders.length === 0 ? (
-          <p className="text-muted-foreground">
-            Hələ ki heç bir sifariş yoxdur.
-          </p>
+          <p className="text-muted-foreground">Hələ ki heç bir sifariş yoxdur.</p>
         ) : (
           <div className="space-y-4">
             {orders.map((order) => (
-              <div
-                key={order._id}
-                className="border rounded-lg p-4 hover:bg-accent transition-colors"
-              >
+              <div key={order._id} className="border rounded-lg p-4 hover:bg-accent transition-colors">
                 <div className="flex justify-between items-start mb-2">
                   <div>
-                    <p className="font-medium">
-                      Sifariş #{order._id.slice(-6)}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {formatDate(order.createdAt)}
-                    </p>
+                    <p className="font-medium">Sifariş #{order._id.slice(-6)}</p>
+                    <p className="text-sm text-muted-foreground">{formatDate(order.createdAt)}</p>
                   </div>
-                  <Badge
-                    variant={
-                      order.orderStatus === "delivered"
-                        ? "success"
-                        : "secondary"
-                    }
-                  >
+                  <Badge variant={order.orderStatus === "delivered" ? "default" : "secondary"}>
                     {order.orderStatus}
                   </Badge>
                 </div>
                 <div className="space-y-2">
                   {order.items.map((item) => (
-                    <div
-                      key={item.product._id}
-                      className="flex justify-between text-sm"
-                    >
+                    <div key={item.product._id} className="flex justify-between text-sm">
                       <span>
                         {item.product.name} × {item.quantity}
                       </span>

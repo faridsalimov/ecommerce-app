@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useSession } from "next-auth/react"; // Importing useSession from next-auth
+import { useSession } from "next-auth/react";
 import { Cart } from "@/types/cart";
 
 export function useCart() {
-  const { data: session, status } = useSession(); // Use session to get authentication status
+  const { data: session, status } = useSession();
   const [cart, setCart] = useState<Cart | null>(null);
   const [loading, setLoading] = useState(true);
 

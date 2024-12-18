@@ -3,14 +3,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { LoadingButton } from "@/components/ui/loading-button";
@@ -31,10 +24,7 @@ interface AddressFormProps {
   initialData?: AddressFormData;
 }
 
-export default function AddressForm({
-  onSubmit,
-  initialData,
-}: AddressFormProps) {
+export default function AddressForm({ onSubmit, initialData }: AddressFormProps) {
   const [loading, setLoading] = useState(false);
 
   const form = useForm<AddressFormData>({

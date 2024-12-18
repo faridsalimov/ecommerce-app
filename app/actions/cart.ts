@@ -93,9 +93,7 @@ export async function getCart() {
       return { success: false, error: "İcazəniz yoxdur" };
     }
 
-    const cart = await Cart.findOne({ user: session.user.id }).populate(
-      "items.product"
-    );
+    const cart = await Cart.findOne({ user: session.user.id }).populate("items.product");
 
     return { success: true, cart };
   } catch (error) {

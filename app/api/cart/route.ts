@@ -15,17 +15,12 @@ export async function GET() {
 
     await connectDB();
 
-    const cart = await Cart.findOne({ user: session.user.id }).populate(
-      "items.product"
-    );
+    const cart = await Cart.findOne({ user: session.user.id }).populate("items.product");
 
     return NextResponse.json({ cart });
   } catch (error) {
     console.error("Cart fetch error:", error);
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
 
@@ -42,10 +37,7 @@ export async function POST(req: Request) {
     const { productId, quantity } = await req.json();
 
     if (!mongoose.Types.ObjectId.isValid(productId)) {
-      return NextResponse.json(
-        { error: "Invalid product ID" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Invalid product ID" }, { status: 400 });
     }
 
     await connectDB();
@@ -66,10 +58,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ cart });
   } catch (error) {
     console.error("Cart update error:", error);
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
 
@@ -99,10 +88,7 @@ export async function PUT(req: Request) {
     return NextResponse.json({ cart });
   } catch (error) {
     console.error("Cart item update error:", error);
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
 
@@ -127,9 +113,6 @@ export async function DELETE(req: Request) {
     return NextResponse.json({ cart });
   } catch (error) {
     console.error("Cart item delete error:", error);
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }

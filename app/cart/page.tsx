@@ -39,8 +39,7 @@ export default function CartPage() {
       <div className="container mx-auto px-4 py-16 text-center">
         <h1 className="text-2xl font-bold mb-4">Səbətiniz Boşdur</h1>
         <p className="text-muted-foreground mb-8">
-          Səbətinizdə heç bir məhsul yoxdur. Alış-verişə davam etmək üçün
-          mağazaya qayıdın.
+          Səbətinizdə heç bir məhsul yoxdur. Alış-verişə davam etmək üçün mağazaya qayıdın.
         </p>
       </div>
     );

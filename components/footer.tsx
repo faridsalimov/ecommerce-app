@@ -93,10 +93,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <div>
-            &copy; {new Date().getFullYear()} ecommerce.az. Bütün hüquqlar
-            qorunur.
-          </div>
+          <div>&copy; {new Date().getFullYear()} ecommerce.az. Bütün hüquqlar qorunur.</div>
         </div>
       </div>
     </footer>

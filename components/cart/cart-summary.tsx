@@ -11,10 +11,7 @@ interface CartSummaryProps {
 
 export default function CartSummary({ cart }: CartSummaryProps) {
   const router = useRouter();
-  const subtotal = cart.items.reduce(
-    (total, item) => total + item.product.price * item.quantity,
-    0
-  );
+  const subtotal = cart.items.reduce((total, item) => total + item.product.price * item.quantity, 0);
   const shipping = 10;
   const total = subtotal + shipping;
 
@@ -41,11 +38,7 @@ export default function CartSummary({ cart }: CartSummaryProps) {
         </div>
       </div>
 
-      <Button
-        className="w-full mt-6"
-        onClick={() => router.push("/checkout")}
-        disabled={cart.items.length === 0}
-      >
+      <Button className="w-full mt-6" onClick={() => router.push("/checkout")} disabled={cart.items.length === 0}>
         Sifarişi Tamamla
       </Button>
     </div>

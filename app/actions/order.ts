@@ -16,9 +16,7 @@ export async function createOrder(orderData: OrderData) {
       return { success: false, error: "Sifariş vermək üçün daxil olmalısınız" };
     }
 
-    const cart = await Cart.findOne({ user: session.user.id }).populate(
-      "items.product"
-    );
+    const cart = await Cart.findOne({ user: session.user.id }).populate("items.product");
 
     if (!cart || cart.items.length === 0) {
       return { success: false, error: "Səbətiniz boşdur" };
@@ -32,10 +30,7 @@ export async function createOrder(orderData: OrderData) {
       paymentMethod: orderData.paymentMethod,
     });
 
-    await Cart.findOneAndUpdate(
-      { user: session.user.id },
-      { $set: { items: [], total: 0 } }
-    );
+    await Cart.findOneAndUpdate({ user: session.user.id }, { $set: { items: [], total: 0 } });
 
     return { success: true, order };
   } catch (error) {
@@ -53,9 +48,7 @@ export async function getUserOrders() {
       return { success: false, error: "İcazəniz yoxdur" };
     }
 
-    const orders = await Order.find({ user: session.user.id })
-      .populate("items.product")
-      .sort({ createdAt: -1 });
+    const orders = await Order.find({ user: session.user.id }).populate("items.product").sort({ createdAt: -1 });
 
     return { success: true, orders };
   } catch (error) {

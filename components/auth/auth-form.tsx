@@ -7,14 +7,7 @@ import * as z from "zod";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { LoadingButton } from "@/components/ui/loading-button";
@@ -32,6 +25,11 @@ const registerSchema = loginSchema.extend({
 
 interface AuthFormProps {
   type: "login" | "register";
+  onSubmit?: (
+    data: AuthFormData
+  ) => Promise<
+    { success: boolean; error: string } | { success: boolean; user: { id: any; name: any; email: any; role: any } }
+  >;
 }
 
 export default function AuthForm({ type }: AuthFormProps) {
@@ -132,9 +130,7 @@ export default function AuthForm({ type }: AuthFormProps) {
                 <Input
                   type="password"
                   placeholder="Şifrənizi daxil edin"
-                  autoComplete={
-                    type === "login" ? "current-password" : "new-password"
-                  }
+                  autoComplete={type === "login" ? "current-password" : "new-password"}
                   {...field}
                 />
               </FormControl>
@@ -152,20 +148,14 @@ export default function AuthForm({ type }: AuthFormProps) {
             {type === "login" ? (
               <>
                 Hesabınız yoxdur?{" "}
-                <Link
-                  href="/auth/register"
-                  className="text-primary hover:underline"
-                >
+                <Link href="/auth/register" className="text-primary hover:underline">
                   Qeydiyyatdan keçin
                 </Link>
               </>
             ) : (
               <>
                 Artıq hesabınız var?{" "}
-                <Link
-                  href="/auth/login"
-                  className="text-primary hover:underline"
-                >
+                <Link href="/auth/login" className="text-primary hover:underline">
                   Daxil olun
                 </Link>
               </>

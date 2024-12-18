@@ -33,19 +33,13 @@ export default function CartItem({ item, onUpdate }: CartItemProps) {
   return (
     <div className="flex items-center gap-4 py-4 border-b">
       <div className="relative w-24 h-24">
-        <Image
-          src={item.product.image}
-          alt={item.product.name}
-          fill
-          className="object-cover rounded-md"
-        />
+        <Image src={item.product.image} alt={item.product.name} fill className="object-cover rounded-md" />
       </div>
 
       <div className="flex-grow">
         <h3 className="font-semibold">{item.product.name}</h3>
         <p className="text-muted-foreground">
-          {item.product.price} ₼ × {item.quantity} ={" "}
-          {item.product.price * item.quantity} ₼
+          {item.product.price} ₼ × {item.quantity} = {item.product.price * item.quantity} ₼
         </p>
 
         <div className="flex items-center gap-2 mt-2">
@@ -71,13 +65,7 @@ export default function CartItem({ item, onUpdate }: CartItemProps) {
         </div>
       </div>
 
-      <Button
-        variant="ghost"
-        size="icon"
-        className="text-destructive"
-        onClick={handleRemove}
-        disabled={loading}
-      >
+      <Button variant="ghost" size="icon" className="text-destructive" onClick={handleRemove} disabled={loading}>
         <Trash2 className="h-4 w-4" />
       </Button>
     </div>
